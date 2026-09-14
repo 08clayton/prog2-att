@@ -3,10 +3,10 @@
 #include <string>
 using namespace std;
 
-void visitarPagina(stack<string>& historico) {
+void acessarPagina(stack<string>& historico) {
     string pagina;
 
-    cout << "Digite a URL da pagina: ";
+    cout << "Informe a URL da pagina: ";
     cin >> pagina;
 
     historico.push(pagina);
@@ -14,7 +14,7 @@ void visitarPagina(stack<string>& historico) {
     cout << "Pagina visitada!\n";
 }
 
-void paginaAtual(const stack<string>& historico) {
+void mostrarPaginaAtual(const stack<string>& historico) {
     if (historico.empty()) {
         cout << "Nenhuma pagina visitada.\n";
         return;
@@ -24,7 +24,7 @@ void paginaAtual(const stack<string>& historico) {
          << historico.top() << endl;
 }
 
-void voltarPagina(stack<string>& historico) {
+void retornarPagina(stack<string>& historico) {
     if (historico.size() <= 1) {
         cout << "Nao ha pagina anterior.\n";
         return;
@@ -36,7 +36,7 @@ void voltarPagina(stack<string>& historico) {
          << historico.top() << endl;
 }
 
-void exibirHistorico(stack<string> historico) {
+void mostrarHistorico(stack<string> historico) {
     if (historico.empty()) {
         cout << "Historico vazio.\n";
         return;
@@ -61,24 +61,24 @@ int main() {
         cout << "3 - Voltar\n";
         cout << "4 - Exibir historico\n";
         cout << "0 - Sair\n";
-        cout << "Escolha: ";
+        cout << "Selecione uma opcao: ";
         cin >> opcao;
 
         switch (opcao) {
             case 1:
-                visitarPagina(historico);
+                acessarPagina(historico);
                 break;
 
             case 2:
-                paginaAtual(historico);
+                mostrarPaginaAtual(historico);
                 break;
 
             case 3:
-                voltarPagina(historico);
+                retornarPagina(historico);
                 break;
 
             case 4:
-                exibirHistorico(historico);
+                mostrarHistorico(historico);
                 break;
 
             case 0:

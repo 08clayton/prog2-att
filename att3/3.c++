@@ -2,28 +2,28 @@
 #include <cmath>
 using namespace std;
 
-double soma(double a, double b) {
-    return a + b;
+double adicionar(double primeiro, double segundo) {
+    return primeiro + segundo;
 }
 
-double subtracao(double a, double b) {
-    return a - b;
+double subtrair(double primeiro, double segundo) {
+    return primeiro - segundo;
 }
 
-double multiplicacao(double a, double b) {
-    return a * b;
+double multiplicar(double primeiro, double segundo) {
+    return primeiro * segundo;
 }
 
-double divisao(double a, double b) {
-    return a / b;
+double dividir(double primeiro, double segundo) {
+    return primeiro / segundo;
 }
 
-double potencia(double a, double b) {
-    return pow(a, b);
+double elevar(double base, double expoente) {
+    return pow(base, expoente);
 }
 
-int resto(int a, int b) {
-    return a % b;
+int obterResto(int primeiro, int segundo) {
+    return primeiro % segundo;
 }
 
 int main() {
@@ -38,7 +38,7 @@ int main() {
         cout << "5 - Potencia\n";
         cout << "6 - Resto da divisao\n";
         cout << "0 - Sair\n";
-        cout << "Escolha: ";
+        cout << "Opcao escolhida: ";
         cin >> opcao;
 
         if (opcao >= 1 && opcao <= 5) {
@@ -52,27 +52,27 @@ int main() {
 
             switch (opcao) {
                 case 1:
-                    cout << "Resultado: " << soma(a, b) << endl;
+                        cout << "Resultado: " << adicionar(a, b) << endl;
                     break;
 
                 case 2:
-                    cout << "Resultado: " << subtracao(a, b) << endl;
+                        cout << "Resultado: " << subtrair(a, b) << endl;
                     break;
 
                 case 3:
-                    cout << "Resultado: " << multiplicacao(a, b) << endl;
+                        cout << "Resultado: " << multiplicar(a, b) << endl;
                     break;
 
                 case 4:
                     if (b == 0) {
                         cout << "Erro: nao e possivel dividir por zero!\n";
                     } else {
-                        cout << "Resultado: " << divisao(a, b) << endl;
+                        cout << "Resultado: " << dividir(a, b) << endl;
                     }
                     break;
 
                 case 5:
-                    cout << "Resultado: " << potencia(a, b) << endl;
+                    cout << "Resultado: " << elevar(a, b) << endl;
                     break;
             }
 
@@ -88,7 +88,7 @@ int main() {
             if (b == 0) {
                 cout << "Erro: nao e possivel calcular resto por zero!\n";
             } else {
-                cout << "Resultado: " << resto(a, b) << endl;
+                cout << "Resultado: " << obterResto(a, b) << endl;
             }
 
         } else if (opcao != 0) {

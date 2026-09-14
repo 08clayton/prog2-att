@@ -2,20 +2,20 @@
 #include <string>
 using namespace std;
 
-bool validarNome(string nome) {
+bool nomeAceito(string nome) {
     return !nome.empty();
 }
 
-bool validarIdade(int idade) {
+bool idadeAceita(int idade) {
     return idade >= 14 && idade <= 120;
 }
 
-bool validarEmail(string email) {
+bool emailAceito(string email) {
     return email.find('@') != string::npos &&
            email.find('.') != string::npos;
 }
 
-bool validarSenha(string senha) {
+bool senhaAceita(string senha) {
     return senha.length() >= 8;
 }
 
@@ -26,44 +26,44 @@ int main() {
     string senha;
 
     do {
-        cout << "Digite seu nome: ";
+        cout << "Informe seu nome: ";
         getline(cin >> ws, nome);
 
-        if (!validarNome(nome)) {
+        if (!nomeAceito(nome)) {
             cout << "Nome invalido!\n";
         }
 
-    } while (!validarNome(nome));
+    } while (!nomeAceito(nome));
 
     do {
-        cout << "Digite sua idade: ";
+        cout << "Informe sua idade: ";
         cin >> idade;
 
-        if (!validarIdade(idade)) {
+        if (!idadeAceita(idade)) {
             cout << "Idade invalida! Deve estar entre 14 e 120.\n";
         }
 
-    } while (!validarIdade(idade));
+    } while (!idadeAceita(idade));
 
     do {
-        cout << "Digite seu e-mail: ";
+        cout << "Informe seu e-mail: ";
         cin >> email;
 
-        if (!validarEmail(email)) {
+        if (!emailAceito(email)) {
             cout << "E-mail invalido!\n";
         }
 
-    } while (!validarEmail(email));
+    } while (!emailAceito(email));
 
     do {
-        cout << "Digite sua senha: ";
+        cout << "Informe sua senha: ";
         cin >> senha;
 
-        if (!validarSenha(senha)) {
+        if (!senhaAceita(senha)) {
             cout << "A senha deve ter pelo menos 8 caracteres!\n";
         }
 
-    } while (!validarSenha(senha));
+    } while (!senhaAceita(senha));
 
     cout << "\nCadastro realizado com sucesso!" << endl;
 

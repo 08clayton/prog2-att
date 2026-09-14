@@ -8,10 +8,10 @@ struct Tarefa {
     bool concluida;
 };
 
-void adicionarTarefa(vector<Tarefa>& tarefas) {
+void incluirTarefa(vector<Tarefa>& tarefas) {
     Tarefa tarefa;
 
-    cout << "Digite a tarefa: ";
+    cout << "Informe a tarefa: ";
     getline(cin >> ws, tarefa.descricao);
 
     tarefa.concluida = false;
@@ -21,13 +21,13 @@ void adicionarTarefa(vector<Tarefa>& tarefas) {
     cout << "Tarefa adicionada!\n";
 }
 
-void listarTarefas(const vector<Tarefa>& tarefas) {
+void mostrarTarefas(const vector<Tarefa>& tarefas) {
     if (tarefas.empty()) {
         cout << "Nenhuma tarefa cadastrada.\n";
         return;
     }
 
-    cout << "\n===== TAREFAS =====\n";
+    cout << "\n===== LISTA DE TAREFAS =====\n";
 
     for (int i = 0; i < tarefas.size(); i++) {
         cout << i + 1 << " - "
@@ -43,10 +43,10 @@ void listarTarefas(const vector<Tarefa>& tarefas) {
     }
 }
 
-void buscarTarefa(const vector<Tarefa>& tarefas) {
+void procurarTarefa(const vector<Tarefa>& tarefas) {
     string busca;
 
-    cout << "Digite o nome da tarefa: ";
+    cout << "Informe o nome da tarefa: ";
     getline(cin >> ws, busca);
 
     for (const Tarefa& tarefa : tarefas) {
@@ -60,12 +60,12 @@ void buscarTarefa(const vector<Tarefa>& tarefas) {
     cout << "Tarefa nao encontrada.\n";
 }
 
-void alterarTarefa(vector<Tarefa>& tarefas) {
+void editarTarefa(vector<Tarefa>& tarefas) {
     int posicao;
 
-    listarTarefas(tarefas);
+    mostrarTarefas(tarefas);
 
-    cout << "Digite o numero da tarefa que deseja alterar: ";
+    cout << "Informe o numero da tarefa para alterar: ";
     cin >> posicao;
 
     if (posicao < 1 || posicao > tarefas.size()) {
@@ -73,18 +73,18 @@ void alterarTarefa(vector<Tarefa>& tarefas) {
         return;
     }
 
-    cout << "Digite a nova descricao: ";
+    cout << "Informe a nova descricao: ";
     getline(cin >> ws, tarefas[posicao - 1].descricao);
 
     cout << "Tarefa alterada!\n";
 }
 
-void removerTarefa(vector<Tarefa>& tarefas) {
+void excluirTarefa(vector<Tarefa>& tarefas) {
     int posicao;
 
-    listarTarefas(tarefas);
+    mostrarTarefas(tarefas);
 
-    cout << "Digite o numero da tarefa que deseja remover: ";
+    cout << "Informe o numero da tarefa para remover: ";
     cin >> posicao;
 
     if (posicao < 1 || posicao > tarefas.size()) {
@@ -97,12 +97,12 @@ void removerTarefa(vector<Tarefa>& tarefas) {
     cout << "Tarefa removida!\n";
 }
 
-void concluirTarefa(vector<Tarefa>& tarefas) {
+void finalizarTarefa(vector<Tarefa>& tarefas) {
     int posicao;
 
-    listarTarefas(tarefas);
+    mostrarTarefas(tarefas);
 
-    cout << "Digite o numero da tarefa concluida: ";
+    cout << "Informe o numero da tarefa concluida: ";
     cin >> posicao;
 
     if (posicao < 1 || posicao > tarefas.size()) {
@@ -129,28 +129,28 @@ int main() {
         cout << "6 - Quantidade de tarefas\n";
         cout << "7 - Marcar como concluida\n";
         cout << "0 - Sair\n";
-        cout << "Escolha: ";
+        cout << "Selecione uma opcao: ";
         cin >> opcao;
 
         switch (opcao) {
             case 1:
-                adicionarTarefa(tarefas);
+                incluirTarefa(tarefas);
                 break;
 
             case 2:
-                listarTarefas(tarefas);
+                mostrarTarefas(tarefas);
                 break;
 
             case 3:
-                buscarTarefa(tarefas);
+                procurarTarefa(tarefas);
                 break;
 
             case 4:
-                alterarTarefa(tarefas);
+                editarTarefa(tarefas);
                 break;
 
             case 5:
-                removerTarefa(tarefas);
+                excluirTarefa(tarefas);
                 break;
 
             case 6:
@@ -159,7 +159,7 @@ int main() {
                 break;
 
             case 7:
-                concluirTarefa(tarefas);
+                finalizarTarefa(tarefas);
                 break;
 
             case 0:

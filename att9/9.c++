@@ -9,15 +9,15 @@ struct Pessoa {
     string horario;
 };
 
-void adicionarPessoa(queue<Pessoa>& fila, int& proximaSenha) {
+void inserirPessoa(queue<Pessoa>& fila, int& proximaSenha) {
     Pessoa pessoa;
 
     pessoa.senha = proximaSenha++;
 
-    cout << "Digite o nome: ";
+    cout << "Informe o nome: ";
     getline(cin >> ws, pessoa.nome);
 
-    cout << "Digite o horario de entrada: ";
+    cout << "Informe o horario de entrada: ";
     cin >> pessoa.horario;
 
     fila.push(pessoa);
@@ -26,7 +26,7 @@ void adicionarPessoa(queue<Pessoa>& fila, int& proximaSenha) {
     cout << "Senha: " << pessoa.senha << endl;
 }
 
-void chamarProxima(queue<Pessoa>& fila) {
+void atenderProxima(queue<Pessoa>& fila) {
     if (fila.empty()) {
         cout << "Nao ha pessoas aguardando.\n";
         return;
@@ -42,7 +42,7 @@ void chamarProxima(queue<Pessoa>& fila) {
     fila.pop();
 }
 
-void consultarProxima(const queue<Pessoa>& fila) {
+void mostrarProxima(const queue<Pessoa>& fila) {
     if (fila.empty()) {
         cout << "Nao ha pessoas aguardando.\n";
         return;
@@ -56,7 +56,7 @@ void consultarProxima(const queue<Pessoa>& fila) {
     cout << "Horario: " << pessoa.horario << endl;
 }
 
-void exibirFila(queue<Pessoa> fila) {
+void mostrarFila(queue<Pessoa> fila) {
     if (fila.empty()) {
         cout << "Fila vazia.\n";
         return;
@@ -89,24 +89,24 @@ int main() {
         cout << "4 - Exibir fila\n";
         cout << "5 - Quantidade de pessoas\n";
         cout << "0 - Sair\n";
-        cout << "Escolha: ";
+        cout << "Selecione uma opcao: ";
         cin >> opcao;
 
         switch (opcao) {
             case 1:
-                adicionarPessoa(fila, proximaSenha);
+                inserirPessoa(fila, proximaSenha);
                 break;
 
             case 2:
-                chamarProxima(fila);
+                atenderProxima(fila);
                 break;
 
             case 3:
-                consultarProxima(fila);
+                mostrarProxima(fila);
                 break;
 
             case 4:
-                exibirFila(fila);
+                mostrarFila(fila);
                 break;
 
             case 5:
